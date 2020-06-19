@@ -13,7 +13,7 @@ def main():
         job_radius = int(job_radius)
     except ValueError:
         job_radius = 0
-    job_type = input("Job Type [Full-time, Part-time, Inernship]: ")
+    job_type = input("Job Type [Full-time, Part-time, Internship]: ")
     url_maker = url_utilities.urlMaker(job_title = job_title, location = job_location, radius = job_radius, job_type = job_type)
     url_maker.build_url()
     print(url_maker.url)
