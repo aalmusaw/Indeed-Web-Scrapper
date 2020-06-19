@@ -1,0 +1,36 @@
+.. Indeed Web Scrapper documentation master file, created by
+   sphinx-quickstart on Fri Jun 19 04:31:32 2020.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
+
+Welcome to Indeed Web Scrapper's documentation!
+===============================================
+This package can be used to scrape job postings from Indeed.com. Moreover, a cli user interface is provided
+to enter query parameters to search for a job, and the results are displayed and can be exported to a .csv file.
+This package uses beautifulsoup4 4.9.1 and requests 2.24.0. In addition, I recommend using Python 3.6+.
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Contents:
+
+main
+====
+.. automodule:: main
+    :members:
+
+url_maker
+=========
+.. automodule:: url_utilities
+    :members:
+
+scrapper
+========
+.. automodule:: scrapper
+    :members:
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
