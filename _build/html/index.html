@@ -1,0 +1,279 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Indeed Web Scrapper’s documentation! &#8212; Indeed Web Scrapper 1.0.0 documentation</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="#">Indeed Web Scrapper 1.0.0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Welcome to Indeed Web Scrapper’s documentation!</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="welcome-to-indeed-web-scrapper-s-documentation">
+<h1>Welcome to Indeed Web Scrapper’s documentation!<a class="headerlink" href="#welcome-to-indeed-web-scrapper-s-documentation" title="Permalink to this headline">¶</a></h1>
+<p>This package can be used to scrape job postings from Indeed.com. Moreover, a cli user interface is provided
+to enter query parameters to search for a job, and the results are displayed and can be exported to a .csv file.
+This package uses beautifulsoup4 4.9.1 and requests 2.24.0. In addition, I recommend using Python 3.6+.</p>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+<div class="section" id="module-main">
+<span id="main"></span><h1>main<a class="headerlink" href="#module-main" title="Permalink to this headline">¶</a></h1>
+<p>This module contains the user interface</p>
+</div>
+<div class="section" id="module-url_utilities">
+<span id="url-maker"></span><h1>url_maker<a class="headerlink" href="#module-url_utilities" title="Permalink to this headline">¶</a></h1>
+<p>This module allows the creation and parsing of Indeed.com URLs</p>
+<dl class="py function">
+<dt id="url_utilities.job_type_tokenizer">
+<code class="sig-prename descclassname">url_utilities.</code><code class="sig-name descname">job_type_tokenizer</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">raw_job_type</span></em><span class="sig-paren">)</span><a class="headerlink" href="#url_utilities.job_type_tokenizer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Standradizes a spelling variant of the job type string given by the client.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>raw_job_type</strong> – A string describing the job type, i.e. full-time, part-time, etc.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A string spelled in a form that a urlMaker object expects.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="url_utilities.main">
+<code class="sig-prename descclassname">url_utilities.</code><code class="sig-name descname">main</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#url_utilities.main" title="Permalink to this definition">¶</a></dt>
+<dd><p>A client test</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="url_utilities.token_producer">
+<code class="sig-prename descclassname">url_utilities.</code><code class="sig-name descname">token_producer</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">raw_string</span></em><span class="sig-paren">)</span><a class="headerlink" href="#url_utilities.token_producer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Turns a client string into a valid URL token</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>raw_string</strong> – A string of English words and punctuation marks.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A string with punctuation marks encoded so as to be included in a URL.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt id="url_utilities.urlMaker">
+<em class="property">class </em><code class="sig-prename descclassname">url_utilities.</code><code class="sig-name descname">urlMaker</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">params</span></em><span class="sig-paren">)</span><a class="headerlink" href="#url_utilities.urlMaker" title="Permalink to this definition">¶</a></dt>
+<dd><p>Turns a client query into a valid URL</p>
+<p>A client provides a dictionary of query parameters. An object of this class
+performs the necessary parsing to generate a URL compatible with Indeed.com.</p>
+<dl class="py attribute">
+<dt id="url_utilities.urlMaker.job_title">
+<code class="sig-name descname">job_title</code><a class="headerlink" href="#url_utilities.urlMaker.job_title" title="Permalink to this definition">¶</a></dt>
+<dd><p>A string to describe the job to search for.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="url_utilities.urlMaker.location">
+<code class="sig-name descname">location</code><a class="headerlink" href="#url_utilities.urlMaker.location" title="Permalink to this definition">¶</a></dt>
+<dd><p>A string of a city, or a province (Default is unspecified).</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="url_utilities.urlMaker.radius">
+<code class="sig-name descname">radius</code><a class="headerlink" href="#url_utilities.urlMaker.radius" title="Permalink to this definition">¶</a></dt>
+<dd><p>An int minimum radius of search in km (Default is unspecified).</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="url_utilities.urlMaker.job_type">
+<code class="sig-name descname">job_type</code><a class="headerlink" href="#url_utilities.urlMaker.job_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>A string specifying whether the job is full-time, part-time, etc.
+(Default is unspecified). Accepts one of {fulltime, parttime, internship}.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="url_utilities.urlMaker.build_url">
+<code class="sig-name descname">build_url</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#url_utilities.urlMaker.build_url" title="Permalink to this definition">¶</a></dt>
+<dd><p>Builds a URL using the existing urlMaker attributes</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="url_utilities.urlMaker.next_page">
+<code class="sig-name descname">next_page</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#url_utilities.urlMaker.next_page" title="Permalink to this definition">¶</a></dt>
+<dd><p>Changes the url so that it directs to the next page</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="url_utilities.urlMaker.prev_page">
+<code class="sig-name descname">prev_page</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#url_utilities.urlMaker.prev_page" title="Permalink to this definition">¶</a></dt>
+<dd><p>Changes the url so that it directs to the previous page</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-scrapper">
+<span id="scrapper"></span><h1>scrapper<a class="headerlink" href="#module-scrapper" title="Permalink to this headline">¶</a></h1>
+<p>This module allows scraping and filtering information from Indeed.com URL</p>
+<dl class="py class">
+<dt id="scrapper.Query">
+<em class="property">class </em><code class="sig-prename descclassname">scrapper.</code><code class="sig-name descname">Query</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">url</span></em><span class="sig-paren">)</span><a class="headerlink" href="#scrapper.Query" title="Permalink to this definition">¶</a></dt>
+<dd><p>This class stores the results of a client query in a structured format</p>
+<dl class="py attribute">
+<dt id="scrapper.Query.data">
+<code class="sig-name descname">data</code><a class="headerlink" href="#scrapper.Query.data" title="Permalink to this definition">¶</a></dt>
+<dd><p>a dictionary with a string job_id as keys and a tuple storing
+(TITLE, EMPLOYER, LOCATION, LINK) as values.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="scrapper.Query.num_jobs">
+<code class="sig-name descname">num_jobs</code><a class="headerlink" href="#scrapper.Query.num_jobs" title="Permalink to this definition">¶</a></dt>
+<dd><p>an int storing the total number of matches.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="scrapper.Query.soup">
+<code class="sig-name descname">soup</code><a class="headerlink" href="#scrapper.Query.soup" title="Permalink to this definition">¶</a></dt>
+<dd><p>a BeautifulSoup object storing the current url’s HTML content</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="scrapper.Query.__str__">
+<code class="sig-name descname">__str__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#scrapper.Query.__str__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts the data of the Query into a csv format</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A string specifying the query data in csv format</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="scrapper.Query.find_total_matches">
+<code class="sig-name descname">find_total_matches</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#scrapper.Query.find_total_matches" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find the total job matches of this query</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>An int specifying the total job matches</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="scrapper.Query.parse_soup">
+<code class="sig-name descname">parse_soup</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#scrapper.Query.parse_soup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parses the soup instance variable to populate the data instance variable with job postings</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="scrapper.Query.update_soup">
+<code class="sig-name descname">update_soup</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">url</span></em><span class="sig-paren">)</span><a class="headerlink" href="#scrapper.Query.update_soup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Updates the soup instance variable using the given URL</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>url</strong> – A string containing Indeed.com url with query parameters</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt id="scrapper.main">
+<code class="sig-prename descclassname">scrapper.</code><code class="sig-name descname">main</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#scrapper.main" title="Permalink to this definition">¶</a></dt>
+<dd><p>A client test</p>
+</dd></dl>
+
+</div>
+<div class="section" id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
+<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
+</ul>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="#">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Welcome to Indeed Web Scrapper’s documentation!</a></li>
+<li><a class="reference internal" href="#module-main">main</a></li>
+<li><a class="reference internal" href="#module-url_utilities">url_maker</a></li>
+<li><a class="reference internal" href="#module-scrapper">scrapper</a></li>
+<li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/index.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="#">Indeed Web Scrapper 1.0.0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Welcome to Indeed Web Scrapper’s documentation!</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2020, Ali Al-Musawi.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.1.1.
+    </div>
+  </body>
+</html>
