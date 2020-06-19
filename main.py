@@ -31,7 +31,7 @@ def main():
         print(f"Job Title: {value[0][1:-1]}") # ignore quote marks
         print(f"Job Location: {value[2][1:-1]}") # ignore quote marks
         print(f"Employer: {value[1][1:-1]}") # ignore quote marks
-        print(f"Apply here: {value[3][1:-1]}")
+        print(f"Apply here: {value[3]}")
         print("\n")
     response = input("Would you like to save the results in a .csv file [Y/n]? : ")
     if "y" in response.lower():
