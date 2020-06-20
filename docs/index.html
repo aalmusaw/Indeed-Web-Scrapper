@@ -47,7 +47,19 @@ This package uses beautifulsoup4 4.9.1 and requests 2.24.0. In addition, I recom
 </div>
 <div class="section" id="module-main">
 <span id="main"></span><h1>main<a class="headerlink" href="#module-main" title="Permalink to this headline">¶</a></h1>
-<p>This module contains the user interface</p>
+<p>This module contains the user interface.</p>
+<p>On launch, you are prompted to enter the following:
+  <ul>
+  <li>Job title to search for. </li>
+  <li>Location of interest to search in.</li>
+  <li>A radius of search in kilometres.</li>
+  <li>Job type: One of {Full-time, Part-time, Internship}. Any word containing one of the stems {full, part, intern} will be accepted.</li>
+</ul>
+  You may skip any of the above inputs on an empty string. It is not recommended to skip the first two inputs as you will be flooded with job results.
+  </p>
+<p> After results are loaded up, you will be asked whether to save the job postings in a .csv file. On any input containing the letter 'y', you will be
+  asked to provide a path to the parent directory to store the .csv file. Please ensure that the path is post-fixed with a slash. The resulting file
+  will be named <b>job_query.csv</b></p>
 </div>
 <div class="section" id="module-url_utilities">
 <span id="url-maker"></span><h1>url_maker<a class="headerlink" href="#module-url_utilities" title="Permalink to this headline">¶</a></h1>
