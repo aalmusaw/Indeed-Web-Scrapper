@@ -43,7 +43,7 @@ def main():
         while not written:
             response = input("Provide a directory path to write to: ")
             try:
-                f = open(str(os.join(pathlib.Path(response), pathlib.Path("job_query.csv"))), "w")
+                f = open(str(os.join(pathlib.Path(os.getcwd()), pathlib.Path("job_query.csv"))), "w")
                 f.write(str(query))
                 print("File written successfully.")
                 written = True
