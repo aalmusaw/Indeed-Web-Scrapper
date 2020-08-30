@@ -48,7 +48,6 @@ def main():
         except Exception:
             print("An error has occurred in writing the file. ")
             print("Make sure the directory you provided is correct.")
-            print("If you are using Windows, please ensure you are escaping the slashes.")
         finally:
             if f:
                 f.close()
