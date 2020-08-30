@@ -39,19 +39,14 @@ def main():
         print("\n")
     response = input("Would you like to save the results in a .csv file [Y/n]? : ")
     if "y" in response.lower():
-        written = False
-        while not written:
-            response = input("Provide a directory path to write to: ")
-            try:
-                f = open(str(os.join(pathlib.Path(os.getcwd()), pathlib.Path("job_query.csv"))), "w")
-                f.write(str(query))
-                print("File written successfully.")
-                written = True
-            except Exception:
-                print("An error has occurred in writing the file. ")
-                print("Make sure the directory you provided is correct.")
-            finally:
-                f.close()
+        try:
+            f = open(str(os.path.join(pathlib.Path(os.getcwd()), pathlib.Path("job_query.csv"))), "w")
+            f.write(str(query))
+            print("File written successfully in current directory.")
+        except Exception:
+            print("An error has occurred in writing the file. ")
+        finally:
+            f.close()
     else:
         print("Goodbye!")
 
