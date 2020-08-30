@@ -1,6 +1,10 @@
 """This module contains the user interface"""
+import os
+import pathlib
+
 import scrapper
 import url_utilities
+
 
 def main():
     print("Welcome to Indeed Job Search Tool")
@@ -37,7 +41,7 @@ def main():
     if "y" in response.lower():
         response = input("Provide a directory path to write to: ")
         try:
-            f = open(response+"job_query.csv", "w")
+            f = open(os.join(pathlib.Path(response), pathlib.Path("job_query.csv"), "w")
             f.write(str(query))
             f.close()
             print("File written successfully.")
